@@ -17,3 +17,5 @@ import '../css/application'
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+import '../images/logo.png'
