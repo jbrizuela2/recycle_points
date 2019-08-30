@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/navbar" %>
+    <%= render partial: "shared/messages" if flash.any? %>
+    <%= render partial: "shared/navbar" %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,10 @@
+<div data-controller="flash-messages">
+  <% flash.each do |name, msg| %>
+    <div class='notification is-<%= class_for_flash(name) %>' data-target="flash-messages.notificationBox">
+      <button class="delete" data-action="flash-messages#closeMessage"></button>
+      <p class="has-text-white is-size-5 has-text-weight-medium">
+        <%= msg %>
+      </p>
+    </div>
+  <% end %>
+</div>
