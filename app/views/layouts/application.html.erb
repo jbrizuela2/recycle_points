@@ -12,6 +12,10 @@
   <body>
     <%= render partial: "shared/messages" if flash.any? %>
     <%= render partial: "shared/navbar" %>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

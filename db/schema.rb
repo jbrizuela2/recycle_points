@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_201631) do
+ActiveRecord::Schema.define(version: 2019_08_30_211754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "recycle_points", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "phone_number"
+    t.string "schedule"
+    t.string "website"
+    t.float "price"
+    t.string "map_location"
+    t.boolean "reward"
+    t.boolean "delivery"
+    t.boolean "cost"
+    t.bigint "material_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_recycle_points_on_material_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
