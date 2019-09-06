@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RecyclePointsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do

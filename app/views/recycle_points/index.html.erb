@@ -1,4 +1,12 @@
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button" %>
-<% end %>
+<section class="section">
+<div class="menu-container">
+  <%= render partial: "shared/materials" if controller_name = "recycle_points" %>
 
+  <div class="container is-desktop">
+    <% if admin_signed? %>
+      <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button" %>
+    <% end %>
+
+    
+  </div>
+</section>

@@ -2,11 +2,12 @@ class RecyclePointsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    
+    @materials = Material.all
+    @recycle_points = RecyclePoint.all.group_by(&:material_id)
   end
 
   def new
-  @recycle_point = RecyclePoint.new
+    @recycle_point = RecyclePoint.new
   end
 
   def create
@@ -25,7 +26,7 @@ class RecyclePointsController < ApplicationController
 
   def recycle_point_params
     params.require(:recycle_point)
-          .permit(:name,
+      .permit(:name,
                   :address,
                   :city,
                   :phone_number,

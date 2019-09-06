@@ -1,3 +1,12 @@
 // Place all the styles related to the RecyclePoints controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+
+  aside.menu {
+    width: 300px;
+  }
+}
