@@ -1,0 +1,77 @@
+<%= form_for recycle_point do |f| %>
+  <div class="columns is-mobile">
+    <div class="column">
+      <div class="control">
+        <%= f.label "Nombre", class: "label" %>
+        <div class="field">
+          <%= f.text_field :name, class: "input" %>
+        </div>
+      </div>
+
+      <div class="control">
+        <%= f.label "Dirección", class: "label" %>
+        <div class="field">
+          <%= f.text_field :address, class: "input" %>
+        </div>
+      </div>
+
+      <div class="control">
+        <%= f.label "Municipio", class: "label" %>
+        <div class="field">
+          <%= f.text_field :city, class: "input" %>
+        </div>
+      </div>
+
+      <div class="control">
+        <%= f.label label_for_price(recycle_point), class: "label" %>
+        <div class="field">
+          <%= f.number_field :price, class: "input" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="control">
+        <%= f.label "Teléfono", class: "label" %>
+        <div class="field">
+          <%= f.text_field :phone_number, class: "input" %>
+        </div>
+      </div>
+
+      <div class="control">
+        <%= f.label "Horario", class: "label" %>
+        <div class="field">
+          <%= f.text_field :schedule, class: "input" %>
+        </div>
+      </div>
+      
+      <div class="control">
+        <%= f.label "Página", class: "label" %>
+        <div class="field">
+          <%= f.text_field :website, class: "input" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <h2 class="title"> Características </h2>
+
+
+  <label class="label">
+    <%= f.check_box :reward, class: "checkbox" %>
+    Recompenza
+  </label>
+
+  <label class="label">
+    <%= f.check_box :cost, class: "checkbox" %>
+    Precio
+  </label>
+
+  <label class="label">
+    <%= f.check_box :delivery, class: "checkbox" %>
+    Servicio a Domicilio
+  </label>
+
+  <%= f.submit "Guardar", class: "button is-success" %>
+<% end %>

@@ -1,1 +1,4 @@
-salu3
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button" %>
+<% end %>
+
