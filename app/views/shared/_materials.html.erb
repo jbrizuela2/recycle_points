@@ -4,6 +4,9 @@
     <% @materials.each do |material| %>
       <li> <%= link_to material.name, material_path(material) %> </li>
     <% end %>
-    <%= link_to "Nuevo material", new_material_path, class: "button is-small" %>
+    
+    <% if admin_signed? %>
+      <%= link_to "Nuevo material", new_material_path, class: "button is-small" %>
+    <% end %>
   </ul>
 </aside>

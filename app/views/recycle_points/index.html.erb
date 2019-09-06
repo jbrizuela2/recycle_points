@@ -3,10 +3,23 @@
   <%= render partial: "shared/materials" if controller_name = "recycle_points" %>
 
   <div class="container is-desktop">
-    <% if admin_signed? %>
-      <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button" %>
-    <% end %>
+    <nav class="panel">
+      <p class="panel-heading"> Puntos de reciclaje </p>
 
-    
+      <% @recycle_points.keys.each do |rpid| %>
+        <div id="rp<%=rpid%>">
+          <% @recycle_points.dig(rpid).each do |rc_point| %>
+            <%= link_to rc_point.name, "#", class: "panel-block" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if admin_signed? %>
+        <div class="panel-block">
+          <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button is-link is-outlined is-fullwidth" %>
+        </div>
+      <% end %>
+    </nav>
+
   </div>
 </section>
