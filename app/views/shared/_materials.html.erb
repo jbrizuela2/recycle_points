@@ -2,9 +2,9 @@
   <p class="menu-label"> Materiales </p>
   <ul class="menu-list">
     <% @materials.each do |material| %>
-      <li> <%= link_to material.name, material_path(material) %> </li>
+      <li> <%= link_to material.name, "#rp-#{material.id}", data: {action: "recycle-panel#openPanel"} %> </li>
     <% end %>
-    
+
     <% if admin_signed? %>
       <%= link_to "Nuevo material", new_material_path, class: "button is-small" %>
     <% end %>

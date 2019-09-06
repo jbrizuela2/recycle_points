@@ -1,13 +1,13 @@
 <section class="section">
-<div class="menu-container">
-  <%= render partial: "shared/materials" if controller_name = "recycle_points" %>
+<div class="menu-container" data-controller="recycle-panel">
+  <%= render partial: "shared/materials" %>
 
   <div class="container is-desktop">
     <nav class="panel">
       <p class="panel-heading"> Puntos de reciclaje </p>
 
       <% @recycle_points.keys.each do |rpid| %>
-        <div id="rp<%=rpid%>">
+        <div id="rp-<%=rpid%>" data-target="recycle-panel.materialContainer">
           <% @recycle_points.dig(rpid).each do |rc_point| %>
             <%= link_to rc_point.name, "#", class: "panel-block" %>
           <% end %>
