@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import $ from 'jquery'
 
 export default class extends Controller {
-  static targets = ["materialContainer"]
+  static targets = ["materialContainer", "recyclePoint"]
 
   connect() {
     this.materialContainerTargets.forEach((matContainer, i) => {
@@ -12,6 +12,13 @@ export default class extends Controller {
         $(matContainer).addClass("active-panel")
       }
     })
+    this.collapseDetailsPanels()
+  }
+  
+  collapseDetailsPanels() {
+    this.recyclePointTargets.forEach((recyclePoint, _) => {
+      $(recyclePoint).hide()
+    })
   }
 
   openPanel(event) {
@@ -20,12 +27,29 @@ export default class extends Controller {
     $("a.is-active").removeClass("is-active")
     $(event.target).addClass("is-active")
 
-    let current_panel = $(".active-panel")
-    current_panel.removeClass("active-panel")
-    current_panel.addClass("is-hidden")
+    let currentPanel = $(".active-panel")
+    currentPanel.removeClass("active-panel")
+    currentPanel.addClass("is-hidden")
     
     let id = $(event.target).attr("href")
     $(`${id}`).removeClass("is-hidden")
     $(`${id}`).addClass("active-panel")
+
+    this.collapseDetailsPanels()
+  }
+
+  showPoint(event) {
+    event.preventDefault()
+
+    let currentPanel = $(`.active-details`)
+    currentPanel.slideUp()
+    currentPanel.removeClass("active-panel")
+    
+    let clickedPanel = $($(event.target).attr("href"))
+    clickedPanel.slideDown();
+    clickedPanel.addClass("active-details")
+
+    $(".panel-block.is-active").removeClass("is-active")
+    $(event.target).addClass("is-active")
   }
 }

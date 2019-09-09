@@ -9,7 +9,29 @@
       <% @recycle_points.keys.each do |rpid| %>
         <div id="rp-<%=rpid%>" data-target="recycle-panel.materialContainer">
           <% @recycle_points.dig(rpid).each do |rc_point| %>
-            <%= link_to rc_point.name, "#", class: "panel-block" %>
+            <%= link_to rc_point.name, "#rp-data-#{rc_point.id}", class: "panel-block", data: {action: "recycle-panel#showPoint"}  %>
+            
+            <div class="panel-block rp-details" id="rp-data-<%=rc_point.id%>" data-target="recycle-panel.recyclePoint"> 
+              <div class="field">
+                <label class="label"> Dirección:  </label> <%= rc_point.address || "Sin información" %>
+              </div>
+
+              <div class="field">
+                <label class="label"> Ciudad:  </label> <%= rc_point.city || "Sin información" %>
+              </div>
+
+              <div class="field">
+                <label class="label"> Horario:  </label> <%= rc_point.schedule || "Sin información" %>
+              </div>
+
+              <div class="field">
+                <label class="label"> Teléfono:  </label> <%= rc_point.phone_number || "Sin información" %>
+              </div>
+
+              <div class="field">
+                <label class="label"> Sitio web:  </label> <%= rc_point.website || "Sin información" %>
+              </div>
+            </div>
           <% end %>
         </div>
       <% end %>
