@@ -9,9 +9,6 @@ class CreateRecyclePoints < ActiveRecord::Migration[6.0]
       t.string :website
       t.float :price
       t.string :map_location
-      t.boolean :reward
-      t.boolean :delivery
-      t.boolean :cost
       t.references :material
 
       t.timestamps

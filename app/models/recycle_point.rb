@@ -20,5 +20,5 @@
 #
 
 class RecyclePoint < ApplicationRecord
-  belongs_to :material
+  has_and_belongs_to_many :materials
 end

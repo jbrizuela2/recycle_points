@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_212330) do
+ActiveRecord::Schema.define(version: 2019_09_09_204217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2019_08_30_212330) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "materials_recycle_points", force: :cascade do |t|
+    t.bigint "material_id"
+    t.bigint "recycle_point_id"
+    t.boolean "reward"
+    t.boolean "delivery"
+    t.boolean "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_materials_recycle_points_on_material_id"
+    t.index ["recycle_point_id"], name: "index_materials_recycle_points_on_recycle_point_id"
+  end
+
   create_table "recycle_points", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -31,9 +43,6 @@ ActiveRecord::Schema.define(version: 2019_08_30_212330) do
     t.string "website"
     t.float "price"
     t.string "map_location"
-    t.boolean "reward"
-    t.boolean "delivery"
-    t.boolean "cost"
     t.bigint "material_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

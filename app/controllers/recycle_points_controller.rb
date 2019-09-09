@@ -3,7 +3,7 @@ class RecyclePointsController < ApplicationController
 
   def index
     @materials = Material.order(:name)
-    @recycle_points = RecyclePoint.all.order(:name).group_by(&:material_id)
+    @recycle_points = Material.all.reduce({}) {|h, k| h.update(k.id => k.recycle_points) }
   end
 
   def new
@@ -58,7 +58,7 @@ class RecyclePointsController < ApplicationController
                   :reward,
                   :delivery,
                   :cost,
-                  :material_id,)
+                  material_ids: [],)
   end
 
   def set_recycle_point

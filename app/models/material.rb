@@ -10,5 +10,5 @@
 #
 
 class Material < ApplicationRecord
-  has_many :recycle_points
+  has_and_belongs_to_many :recycle_points
 end
