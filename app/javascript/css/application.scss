@@ -1,2 +1,7 @@
 @import '~bulma/bulma';
-@import "recycle_points.scss"
+@import "recycle_points.scss";
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
