@@ -7,7 +7,14 @@
   flex-direction: row;
 
   aside.menu {
-    width: 300px;
+    width: 280px;
+    margin-right: 30px;
+  }
+  .menu-list {
+    a {
+      display: inline-block;
+      width: 100%;
+    }
   }
 }
 
