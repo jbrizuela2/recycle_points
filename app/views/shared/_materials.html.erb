@@ -14,7 +14,7 @@
                 </span>
               <% end %>
 
-              <%= link_to material_path(material), method: :delete, data: {confirm: "Confirmar" } do %>
+              <%= link_to material_path(material), method: :delete, data: {confirm: "Estás a punto de eliminar un material, y todos los puntos de reciclaje asociados. ¿Desas continuar de todos modos?" } do %>
                 <span class="icon is-small has-text-danger">
                   <i class="far fa-trash-alt"></i>
                 </span>
@@ -26,7 +26,7 @@
     <% end %>
 
     <% if admin_signed? %>
-      <%= link_to "Nuevo material", new_material_path, class: "button is-small" %>
+      <%= link_to "Nuevo material", new_material_path, class: "button is-small is-primary is-outlined" %>
     <% end %>
   </ul>
 </aside>

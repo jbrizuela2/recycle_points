@@ -40,6 +40,16 @@
               <div class="field">
                 <label class="label"> Sitio web:  </label> <%= rc_point.website || "Sin información" %>
               </div>
+
+              <% if admin_signed? %>
+                <div class="field buttons are-small">
+                  <%= link_to "Editar", edit_recycle_point_path(rc_point), class: "button is-link" %>
+                  <%= link_to "Eliminar", recycle_point_path(rc_point), 
+                                          method: :delete,
+                                          class: "button is-danger",
+                                          data: {confirm: "Estás a punto de eliminar un punto de reciclaje. ¿Desas continuar de todos modos?"} %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
