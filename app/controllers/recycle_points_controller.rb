@@ -2,8 +2,8 @@ class RecyclePointsController < ApplicationController
   before_action :set_recycle_point, only: [:edit, :update, :destroy]
 
   def index
-    @materials = Material.all
-    @recycle_points = RecyclePoint.all.group_by(&:material_id)
+    @materials = Material.order(:name)
+    @recycle_points = RecyclePoint.all.order(:name).group_by(&:material_id)
   end
 
   def new

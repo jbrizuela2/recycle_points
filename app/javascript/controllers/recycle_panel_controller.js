@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import $ from 'jquery'
 
 export default class extends Controller {
-  static targets = ["materialContainer", "recyclePoint"]
+  static targets = ["materialContainer", "recyclePoint", "materialLabel"]
 
   connect() {
     this.materialContainerTargets.forEach((matContainer, i) => {
@@ -12,6 +12,8 @@ export default class extends Controller {
         $(matContainer).addClass("active-panel")
       }
     })
+    $(this.materialLabelTarget).addClass("is-active")
+
     this.collapseDetailsPanels()
   }
   

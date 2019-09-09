@@ -4,7 +4,7 @@
     <% @materials.each do |material| %>
       <li>
         <div class="level">
-          <%= link_to material.name, "#rp-#{material.id}", data: {action: "recycle-panel#openPanel"} %>
+          <%= link_to material.name, "#rp-#{material.id}", data: {action: "recycle-panel#openPanel", target: "recycle-panel.materialLabel"} %>
 
           <% if admin_signed? %>
             <div class="level-right">
