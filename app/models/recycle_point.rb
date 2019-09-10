@@ -20,9 +20,11 @@ class RecyclePoint < ApplicationRecord
   include PgSearch::Model
 
   has_and_belongs_to_many :materials
-  pg_search_scope :search_by_attributes, 
+  has_many :materials_recycle_points
+
+  pg_search_scope :search_by_attributes,
                   against: [:name, :address, :city],
                   using: {
-                    tsearch: { prefix: true }
+                    tsearch: {prefix: true},
                   }
 end

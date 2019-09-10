@@ -2,8 +2,8 @@ class RecyclePointsController < ApplicationController
   before_action :set_recycle_point, only: [:edit, :update, :destroy]
 
   def index
-    @materials = Material.order(:name)
-    @recycle_points = Material.all.reduce({}) {|h, k| h.update(k.id => k.recycle_points) }
+    @materials = Material.includes(:recycle_points).order(:name)
+    @recycle_points = @materials.reduce({}) { |h, k| h.update(k.id => k.recycle_points) }
   end
 
   def new
@@ -22,7 +22,8 @@ class RecyclePointsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @recycle_point.update(recycle_point_params)

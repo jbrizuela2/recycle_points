@@ -18,8 +18,23 @@
       <% @recycle_points.keys.each do |rpid| %>
         <div id="rp-<%=rpid%>" data-target="recycle-panel.materialContainer">
           <% @recycle_points.dig(rpid).each do |rc_point| %>
-            <%= link_to rc_point.name, "#rp-data-#{rc_point.id}", class: "panel-block", data: {action: "recycle-panel#showPoint"}  %>
-            
+
+            <%= link_to "#rp-data-#{rc_point.id}", class: "panel-block", data: {action: "recycle-panel#showPoint"} do %>
+              <div class="level" style="width: 100%; z-index: -1;">
+                <div class="level-left">
+                  <%= rc_point.name %>
+                </div>
+
+                <% if rc_point.materials_recycle_points.where(material_id: rpid).pluck(:reward, :cost, :delivery).select(&:nil?).empty? %>
+                  <div class="level-right">
+                    <span class="icon is-small has-text-warning">
+                      <i class="fas fa-puzzle-piece"></i>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+
             <div class="panel-block rp-details" id="rp-data-<%=rc_point.id%>" data-target="recycle-panel.recyclePoint"> 
               <div class="field">
                 <label class="label"> Dirección:  </label> <%= rc_point.address || "Sin información" %>
@@ -64,3 +79,4 @@
 
   </div>
 </section>
+<% console %>
