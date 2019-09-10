@@ -11,14 +11,18 @@
 #  website      :string
 #  price        :float
 #  map_location :string
-#  reward       :boolean
-#  delivery     :boolean
-#  cost         :boolean
 #  material_id  :bigint
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 class RecyclePoint < ApplicationRecord
+  include PgSearch::Model
+
   has_and_belongs_to_many :materials
+  pg_search_scope :search_by_attributes, 
+                  against: [:name, :address, :city],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

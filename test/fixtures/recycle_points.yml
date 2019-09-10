@@ -11,9 +11,6 @@
 #  website      :string
 #  price        :float
 #  map_location :string
-#  reward       :boolean
-#  delivery     :boolean
-#  cost         :boolean
 #  material_id  :bigint
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
