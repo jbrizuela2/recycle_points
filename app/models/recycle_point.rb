@@ -9,7 +9,6 @@
 #  phone_number :string
 #  schedule     :string
 #  website      :string
-#  price        :float
 #  map_location :string
 #  material_id  :bigint
 #  created_at   :datetime         not null
@@ -21,6 +20,8 @@ class RecyclePoint < ApplicationRecord
 
   has_and_belongs_to_many :materials
   has_many :materials_recycle_points
+
+  accepts_nested_attributes_for :materials_recycle_points
 
   pg_search_scope :search_by_attributes,
                   against: [:name, :address, :city],

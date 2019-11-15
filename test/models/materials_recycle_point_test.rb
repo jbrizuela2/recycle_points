@@ -5,9 +5,9 @@
 #  id               :bigint           not null, primary key
 #  material_id      :bigint
 #  recycle_point_id :bigint
+#  price            :float
 #  reward           :boolean
 #  delivery         :boolean
-#  cost             :boolean
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

@@ -52,15 +52,42 @@
         </p>
       </div>
 
-      <div class="field">
-        <%= f.label "Costo / Recompenza", class: "label" %>
-        <p class="control">
-          <%= f.number_field :price, class: "input" %>
-        </p>
-      </div>
     </div>
   </div>
 
-  <hr>
-  
+  <% if material_id%>
+    <hr>
+    <h2 class="title"> Características </h2>
+
+    <%= f.fields_for recycle_point.materials_recycle_points.where(material_id: material_id).first do |ff| %>
+      <label class="label">
+        <%= ff.radio_button :reward, true, class: "checkbox" %>
+        Recompenza
+      </label>
+
+      <label class="label">
+        <%= ff.radio_button :reward, false, class: "checkbox" %>
+        Costo
+      </label>
+
+      <div class="field">
+        <%= ff.label "Costo / Recompenza", class: "label" %>
+        <p class="control">
+          <%= ff.number_field :price, class: "input" %>
+        </p>
+      </div>
+
+
+      <label class="label">
+        <%= ff.check_box :delivery, class: "checkbox" %>
+        Servicio a Domicilio
+      </label>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <p class="control">
+      <%= f.submit "Guardar", class: "button is-success" %>
+    </p>
+  </div>
 <% end %>

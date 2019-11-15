@@ -9,7 +9,6 @@
 #  phone_number :string
 #  schedule     :string
 #  website      :string
-#  price        :float
 #  map_location :string
 #  material_id  :bigint
 #  created_at   :datetime         not null

@@ -1,4 +1,4 @@
-<section class="section">
+ <section class="section">
 <div class="menu-container" data-controller="recycle-panel">
   <%= render partial: "shared/materials" %>
 
@@ -7,12 +7,20 @@
       <p class="panel-heading"> Puntos de reciclaje </p>
 
       <div class="panel-block">
-        <p class="control has-icons-left">
-          <input class="input is-small" type="text" placeholder="search">
-          <span class="icon is-small is-left">
-            <i class="fas fa-search" aria-hidden="true"></i>
-          </span>
-        </p>
+        <div class="level" style="width: 100%;">
+          <p class="level-item control has-icons-left">
+            <input class="input is-small" type="text" placeholder="search">
+            <span class="icon is-small is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
+
+          <% if admin_signed? %>
+            <div class="level-right" style="margin-left: 10px;">
+              <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button is-small is-success is-outlined is-fullwidth" %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <% @recycle_points.keys.each do |rpid| %>
@@ -25,7 +33,7 @@
                   <%= rc_point.name %>
                 </div>
 
-                <% if rc_point.materials_recycle_points.where(material_id: rpid).pluck(:reward, :cost, :delivery).select(&:nil?).empty? %>
+                <% if admin_signed? && rc_point.materials_recycle_points.where(material_id: rpid).pluck(:reward, :price, :delivery).select(&:nil?).empty? %>
                   <div class="level-right">
                     <span class="icon is-small has-text-warning">
                       <i class="fas fa-puzzle-piece"></i>
@@ -58,7 +66,7 @@
 
               <% if admin_signed? %>
                 <div class="field buttons are-small">
-                  <%= link_to "Editar", edit_recycle_point_path(rc_point), class: "button is-link" %>
+                  <%= link_to "Editar", edit_recycle_point_path(rc_point, material_id: rpid), class: "button is-link" %>
                   <%= link_to "Eliminar", recycle_point_path(rc_point), 
                                           method: :delete,
                                           class: "button is-danger",
@@ -67,12 +75,6 @@
               <% end %>
             </div>
           <% end %>
-        </div>
-      <% end %>
-
-      <% if admin_signed? %>
-        <div class="panel-block">
-          <%= link_to "Nuevo punto de reciclaje", new_recycle_point_path, class: "button is-link is-outlined is-fullwidth" %>
         </div>
       <% end %>
     </nav>

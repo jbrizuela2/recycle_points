@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2019_09_09_204217) do
   create_table "materials_recycle_points", force: :cascade do |t|
     t.bigint "material_id"
     t.bigint "recycle_point_id"
+    t.float "price"
     t.boolean "reward"
     t.boolean "delivery"
-    t.boolean "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["material_id"], name: "index_materials_recycle_points_on_material_id"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_204217) do
     t.string "phone_number"
     t.string "schedule"
     t.string "website"
-    t.float "price"
     t.string "map_location"
     t.bigint "material_id"
     t.datetime "created_at", precision: 6, null: false

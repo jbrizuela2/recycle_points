@@ -23,6 +23,7 @@ class RecyclePointsController < ApplicationController
   end
 
   def edit
+    @material_id = params[:material_id]
   end
 
   def update
@@ -54,11 +55,7 @@ class RecyclePointsController < ApplicationController
                   :phone_number,
                   :schedule,
                   :website,
-                  :price,
                   :map_location,
-                  :reward,
-                  :delivery,
-                  :cost,
                   material_ids: [],)
   end
 

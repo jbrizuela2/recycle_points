@@ -7,7 +7,6 @@ class CreateRecyclePoints < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :schedule
       t.string :website
-      t.float :price
       t.string :map_location
       t.references :material
 
