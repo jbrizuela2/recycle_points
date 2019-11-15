@@ -3,6 +3,7 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.all
+    @categories = Category.all
   end
 
   def new

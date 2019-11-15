@@ -1,7 +1,10 @@
 <div>
   <aside class="menu">
-    <p class="menu-label"> Materiales </p>
-    <ul class="menu-list">
-    </ul>
+    <p class="menu-label"> Categorías </p>
+    <% @categories.each do |category| %>
+      <ul class="menu-list">
+        <li> <a> <%= category.name %> </a> </li>
+      </ul>
+    <% end %>
   </aside>
 </div>
