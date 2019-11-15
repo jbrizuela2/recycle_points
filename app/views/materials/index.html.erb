@@ -1,0 +1,14 @@
+
+<section class="section materials-section">
+  <div class="menu-container">
+    <%= render "shared/category_filter", material: @materials.first %>
+
+    <div class="container">
+      <% @materials.in_groups_of(5, nil).each do |materials| %>
+        <div class="level">
+          <%= render partial: "shared/material_card", collection: materials, as: :material %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

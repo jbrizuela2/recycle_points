@@ -1,32 +1,34 @@
-<aside class="menu">
-  <p class="menu-label"> Materiales </p>
-  <ul class="menu-list">
-    <% @materials.each do |material| %>
-      <li>
-        <div class="level">
-          <%= link_to material.name, "#rp-#{material.id}", data: {action: "recycle-panel#openPanel", target: "recycle-panel.materialLabel"} %>
+<div>
+  <aside class="menu is-sticky">
+    <p class="menu-label"> Materiales </p>
+    <ul class="menu-list">
+      <% @materials.each do |material| %>
+        <li>
+          <div class="level">
+            <%= link_to material.name, "#rp-#{material.id}", data: {action: "recycle-panel#openPanel", target: "recycle-panel.materialLabel"} %>
 
-          <% if admin_signed? %>
-            <div class="level-right">
-              <%= link_to edit_material_path(material) do %>
-                <span class="icon is-small has-text-link">
-                  <i class="far fa-edit"></i>
-                </span>
-              <% end %>
+            <% if admin_signed? %>
+              <div class="level-right">
+                <%= link_to edit_material_path(material) do %>
+                  <span class="icon is-small has-text-link">
+                    <i class="far fa-edit"></i>
+                  </span>
+                <% end %>
 
-              <%= link_to material_path(material), method: :delete, data: {confirm: "Estás a punto de eliminar un material, y todos los puntos de reciclaje asociados. ¿Desas continuar de todos modos?" } do %>
-                <span class="icon is-small has-text-danger">
-                  <i class="far fa-trash-alt"></i>
-                </span>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
+                <%= link_to material_path(material), method: :delete, data: {confirm: "Estás a punto de eliminar un material, y todos los puntos de reciclaje asociados. ¿Desas continuar de todos modos?" } do %>
+                  <span class="icon is-small has-text-danger">
+                    <i class="far fa-trash-alt"></i>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
 
-    <% if admin_signed? %>
-      <%= link_to "Nuevo material", new_material_path, class: "button is-small is-primary is-outlined" %>
-    <% end %>
-  </ul>
-</aside>
+      <% if admin_signed? %>
+        <%= link_to "Nuevo material", new_material_path, class: "button is-small is-primary is-outlined" %>
+      <% end %>
+    </ul>
+  </aside>
+</div>

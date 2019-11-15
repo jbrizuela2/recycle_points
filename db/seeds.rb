@@ -88,3 +88,5 @@ RecyclePoint.create(name: "Recycland Colima",
                     schedule: "Lunes a Viernes de 8:00 a 14:00 hrs.",
                     website: "http://recyclandcolima.wixsite.com/recycland",
                     material_ids: [16])
+
+User.create(name: "Admin", email: "admin@rp.com", password: "topsecret", password_confirmation: "topsecret", role: 1)
