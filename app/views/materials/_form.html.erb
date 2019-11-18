@@ -20,7 +20,7 @@
   <div class="field">
     <%= f.label "Categorías", class: "label" %>
     <p class="control">
-      <%= f.select :category_ids, options_from_collection_for_select(Category.all, "id", "name", material.category_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 250px;" %>
+      <%= f.select :category_ids, options_from_collection_for_select(Category.all, "id", "name", material.category_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 100%;" %>
     </p>
   </div>
 

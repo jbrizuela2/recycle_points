@@ -22,8 +22,8 @@
 
   <div class="field">
     <%= f.label "Materiales", class: "label" %>
-    <p class="control">
-      <%= f.select :material_ids, options_from_collection_for_select(Material.all, "id", "name", category.material_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 250px;" %>
+    <p class="control is-fullwidth">
+      <%= f.select :material_ids, options_from_collection_for_select(Material.all, "id", "name", category.material_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 100%;" %>
     </p>
   </div>
 
