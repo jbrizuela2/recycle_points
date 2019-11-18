@@ -1,4 +1,4 @@
-<%= form_for recycle_point do |f| %>
+<%= form_for recycle_point, data: { controller: "select2" } do |f| %>
   <div class="columns is-mobile">
     <div class="column">
       <div class="field">
@@ -24,8 +24,8 @@
 
       <div class="field">
         <%= f.label "Materiales", class: "label" %>
-        <div class="select is-fullwidth is-multiple">
-          <%= f.select :material_ids, options_from_collection_for_select(Material.all, "id", "name", recycle_point.material_ids), {}, multiple: "true", size: 8 %>
+        <div class="control is-fullwidth">
+          <%= f.select :material_ids, options_from_collection_for_select(Material.all, "id", "name", recycle_point.material_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 100%;" %>
         </div>
       </div>
     </div>
