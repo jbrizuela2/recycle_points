@@ -3,8 +3,30 @@
     <p class="menu-label"> Categorías </p>
     <% @categories.each do |category| %>
       <ul class="menu-list">
-        <li> <a> <%= category.name %> </a> </li>
+        <div class="level">
+          <li> <a> <%= category.name %> </a> </li>
+
+          <% if admin_signed? %>
+            <div class="level-right">
+              <%= link_to edit_category_path(category) do %>
+                <span class="icon is-small has-text-link">
+                  <i class="far fa-edit"></i>
+                </span>
+              <% end %>
+
+              <%= link_to category_path(category), method: :delete, data: {confirm: "¿Estás seguro?" } do %>
+                <span class="icon is-small has-text-danger">
+                  <i class="far fa-trash-alt"></i>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </ul>
+    <% end %>
+
+    <% if admin_signed? %>
+      <%= link_to "Nueva categoría", new_category_path, class: "button is-small is-primary is-fullwidth is-outlined" %>
     <% end %>
   </aside>
 </div>

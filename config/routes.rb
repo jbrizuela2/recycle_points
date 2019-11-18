@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :recycle_points
   resources :materials, except: [:show]
+  resources :categories
 
   root to: "main#index"
 end

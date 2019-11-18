@@ -2,7 +2,7 @@ class MaterialsController < ApplicationController
   before_action :set_material, only: [:destroy, :edit, :update]
 
   def index
-    @materials = Material.all
+    @materials = Material.includes(:categories).all
     @categories = Category.all
   end
 
