@@ -1,4 +1,4 @@
-<%= form_for material do |f| %>
+<%= form_for material, data: { controller: "select2" } do |f| %>
   <div class="columns is-mobile">
     <div class="column">
       <div class="field">
@@ -15,6 +15,13 @@
         </p>
       </div>
     <div>
+  </div>
+
+  <div class="field">
+    <%= f.label "Categorías", class: "label" %>
+    <p class="control">
+      <%= f.select :category_ids, options_from_collection_for_select(Category.all, "id", "name", material.category_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 250px;" %>
+    </p>
   </div>
 
   <div class="field">
