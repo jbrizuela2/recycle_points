@@ -43,10 +43,10 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :description, :color)
+    params.require(:category).permit(:name, :description, :color, material_ids: [])
   end
 
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.includes(:materials).find(params[:id])
   end
 end

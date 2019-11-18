@@ -8,6 +8,7 @@
     "@rails/webpacker": "^4.0.7",
     "bulma": "^0.7.5",
     "jquery": "^3.4.1",
+    "select2": "^4.0.12",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
   },

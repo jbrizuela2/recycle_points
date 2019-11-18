@@ -1,4 +1,4 @@
-<%= form_for category do |f| %>
+<%= form_for category , data: {controller: "select2"} do |f| %>
   <div class="field">
     <%= f.label "Nombre", class: "label" %>
     <p class="control">
@@ -15,10 +15,17 @@
 
   <div class="field">
     <%= f.label "Color", class: "label" %>
-    <p class="control">
-      <%= f.select :color, options_for_select(Category::COLORS.to_a) %>
+    <p class="control select">
+      <%= f.select :color, options_for_select(Category::COLORS.to_a, category.color) %>
     </p>
   </div>
-  
+
+  <div class="field">
+    <%= f.label "Materiales", class: "label" %>
+    <p class="control">
+      <%= f.select :material_ids, options_from_collection_for_select(Material.all, "id", "name", category.material_ids), {}, multiple: true, "data-target": "select2.selectInput", style: "width: 250px;" %>
+    </p>
+  </div>
+
   <%= f.submit "Guardar", class: "button is-success" %>
 <% end %>

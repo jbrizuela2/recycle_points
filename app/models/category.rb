@@ -3,6 +3,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  accepts_nested_attributes_for :materials
+
   COLORS = {
     "Negro": "is-black",
     "Gris obscuro": "is-dark",
