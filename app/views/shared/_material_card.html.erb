@@ -13,11 +13,19 @@
       </div>
 
       <div class="content">
-        <%= material.description %>
+        <p> <%= material.description %> </p>
+
+        <% material.categories.each do |category| %>
+          <span class="tag <%= category.color %>"> <%= category.name %> </span>
+        <% end %>
       </div>
 
-      <% material.categories.each do |category| %>
-        <span class="tag <%= category.color %>"> <%= category.name %> </span>
+
+      <% if admin_signed? %>
+        <div class="level has-text-centered">
+          <%= link_to "Editar", edit_material_path(material), class: "button is-small is-info is-outlined level-item material-action-button" %>
+          <%= link_to "Eliminar", material_path(material), method: :delete, data: {confirm: "¿Estás seguro?" }, class: "button is-small is-danger is-outlined level-item material-action-button" %>
+        </div>
       <% end %>
     </div>
   <% end %>

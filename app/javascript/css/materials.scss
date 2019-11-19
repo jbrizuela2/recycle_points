@@ -3,9 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .materials-section {
-  .card {
-    margin: 0 20px;
-    width: 20%;
-    align-self: baseline;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      margin: 10px 20px;
+      width: 260px;
+      align-self: baseline;
+    }
+  }
+
+  .material-action-button {
+    width: 48%;
+    margin: 0 1%;
   }
 }
