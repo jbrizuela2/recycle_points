@@ -1,6 +1,9 @@
 materials = "Aluminio, Baterías, Pet, Bronce, Cartón, Chatarra, Cobre, Dispositivos Electrónicos, Lámparas Incadecentes, Medicamento Caduco, Material Ferroso, Metal no Ferroso, Nailon, Papel, Plástico, Polietileno, Polipropileno"
 materials.split(",").each { |mat| Material.create(name: mat.strip) }
 
+categories = "Orgánica, Inorgánica, Reciclable, No reciclable, Desecho especial, Residuo Peligroso"
+categories.split(",").each { |mat| Category.create(name: mat.strip) }
+
 RecyclePoint.create(name: "Recicladora Bruxeco",
                     address: "Rodolfo Chávez Carrillo #500",
                     city: "Colima",
